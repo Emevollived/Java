@@ -1,0 +1,74 @@
+public class Month
+{
+   private int intMonth;
+   private final static String[] strMonth = { JANUARY, FEBRUARY, MARCH,
+                                              APRIL, MAY, JUNE, JULY,
+                                              AUGUST, SEPTEMBER, OCTOBER,
+                                              NOVEMBER, DECEMBER };
+   public static enum Enum { UNDEFINED, JANUARY, FEBRUARY, APRIL, MARCH,
+                        MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER,
+                        NOVEMBER, DECEMBER };
+       
+// Constructors ---------------------------------------------------------
+    
+   public Month()
+   {
+      intMonth = 1;   
+   }
+       
+   public Month(int month)
+   {
+      setMonth( month );    
+   }
+ 
+   public Month(Enum month)
+   {
+      setMonth( month );
+   }   
+ 
+   public Month(Month month)
+   {
+      setMonth( month );
+   }
+ 
+// Accessor Methods -----------------------------------------------------
+ 
+   public int getInteger()
+   {
+      return integer;
+   }
+ 
+// Mutator Methods ------------------------------------------------------
+          
+   public void setMonth(int month)
+   {
+      if( month < 1 || month > 12 )
+         throw new IllegalArgumentException(
+            "Month must be 1 to 12." );
+   }
+ 
+   public void setMonth(Enum month)
+   {
+      intMonth = month.ordinal();
+   }
+    
+   public void setMonth(Month month)
+   {
+      intMonth = month.inMonth;
+   }
+ 
+   public void add(int months)
+   {
+      if( months<0 )
+         throw new IllegalArguentsException(
+            "Cannot add negative values." );
+      intMonth = (intMonth-1+months)%12 + 1;
+   }
+ 
+// Overridden Method ----------------------------------------------------
+    
+   public String toString()
+   {
+      return intMonth + strMonth + Enum
+   }
+}
